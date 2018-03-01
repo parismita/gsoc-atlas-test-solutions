@@ -17,7 +17,7 @@ class SymMat
     int cols;
     
     public:
-
+    T tmp=0;
     //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
     //constructor with Eigen:Matrix as arguement
     SymMat<T>(Matrix<T, Dynamic, Dynamic>& M){
@@ -63,6 +63,21 @@ class SymMat
         }
     }
 
+    void Put(T value,int row, int col)
+    {
+        //as S[i][i] is stored in S[i][0]
+        //hence if i>j the stored element is S[j][i] in position S[j][i-j]
+        //else S[i][j] in position S[i][j-i]
+        if(row > col){
+            //std::cout<<S[col][row-col];
+            S[col][row-col]=value;
+        }
+        else{
+            //std::cout<<S[row][col-row];
+            S[row][col-row]=value;
+        }
+    }
+
     //accessors for size of symmetric matrix vector S
     int col(){
         return cols;
@@ -87,7 +102,8 @@ class SymMat
         {
             for (int j = i; j < cols; ++j) //columns from diagonal to end
             {
-                S[i][j-i] = S1.Get(i,j)+S2.Get(i,j);
+                tmp = S1.Get(i,j)+S2.Get(i,j);
+                Put(tmp,i,j);
             }
         }
     }
@@ -147,7 +163,8 @@ class SymMat
         {
             for (int j = i; j < cols; ++j) //columns from diagonal to end
             {
-                S[i][j-i] = S1.Get(i,j)-S2.Get(i,j);
+                tmp = S1.Get(i,j)-S2.Get(i,j);
+                Put(tmp,i,j);
             }
         }
     }
@@ -237,10 +254,12 @@ class SymMat
         {
             for (int j = i; j < cols; ++j)
             {
-                for (int k = i; k < cols; ++k)
+                tmp=0;
+                for (int k = 0; k < cols; ++k)
                 {
-                    S[i][j-i] += S1.Get(i,k)*S2.Get(j,k);
+                    tmp += S1.Get(i,k)*S2.Get(j,k);
                 }
+                Put(tmp,i,j);
             }
         }
 
@@ -266,10 +285,12 @@ class SymMat
         {
             for (int j = 0; j < cols; ++j)
             {
-                for (int k = i; k < cols; ++k)
+                tmp = 0;
+                for (int k = 0; k < cols; ++k)
                 {
-                    Sol(i,j) += S1.Get(i,k)*M(k,j);
+                    tmp += S1.Get(i,k)*M(k,j);
                 }
+                Sol(i,j) = tmp;
             }
         }
     }
@@ -290,10 +311,12 @@ class SymMat
         {
             for (int j = 0; j < cols; ++j)
             {
-                for (int k = i; k < cols; ++k)
+                tmp = 0;
+                for (int k = 0; k < cols; ++k)
                 {
-                    Sol(i,j) += M(i,k)*S1.Get(k,j);
+                    tmp += M(i,k)*S1.Get(k,j);
                 }
+                Sol(i,j) = tmp;
             }
         }
     }

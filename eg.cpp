@@ -21,10 +21,10 @@ int main()
 	mf<<1,2,3,4;
 	SymMat<float> Sf(mf);
 
-	/////////////////////////////////////////////////////accessors and constructor////////////////////////////////////////////////////
-	std::cout<<"Here are the matrixes m1(3,3),m2(3,3),mf(2,2) resp"<<"\n"<<m1<<"\n\n"<<m2<<"\n\n"<<mf<<std::endl;
+	/////////////////////accessors and constructor//////////////////////////////////
+	std::cout<<"Here are the Eigen, Matrix m1(3,3),m2(3,3),mf(2,2) resp"<<"\n"<<m1<<"\n\n"<<m2<<"\n\n"<<mf<<std::endl;
 
-	std::cout<<"Here are the symmetric matrixes S1,S2,Sf resp"<<std::endl;
+	std::cout<<"Here are the SymMat symmetric matrixes S1,S2,Sf resp"<<std::endl;
 
 	for (int i = 0; i < 3; ++i)
 	{
@@ -52,7 +52,7 @@ int main()
 		}
 		std::cout<<"\n";
 	}
-	/////////////////////////////////////////////////add S1,S2 and store in S////////////////////////////////////////////////
+	//////////////////////////////add S1,S2 and store in S//////////////////////////////
 	std::cout<<"Adding S1+S2 and storing in S"<<std::endl;
 	S.Add(S1,S2);
 
@@ -64,24 +64,24 @@ int main()
 		}
 		
 		if(i==1){
-			std::cout<<"\t+\t";
+			std::cout<<"\t+\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<S2.Get(i,j)<<" ";
 		}
 		if(i==1){
-			std::cout<<"\t=\t";
+			std::cout<<"\t=\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<S.Get(i,j)<<" ";
 		}
 		std::cout<<"\n";
 	}
-	/////////////////////////////////////////////////add s1,m2 test////////////////////////////////////////////////
+	///////////////////////////add s1,m2 test//////////////////////////////////////////
 	std::cout<<"Adding S1+m2 and storing in m"<<std::endl;
 	S.Add(sol,S1,m2);
 
@@ -93,24 +93,24 @@ int main()
 		}
 		
 		if(i==1){
-			std::cout<<"\t+\t";
+			std::cout<<"\t+\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<m2(i,j)<<" ";
 		}
 		if(i==1){
-			std::cout<<"\t=\t";
+			std::cout<<"\t=\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<sol(i,j)<<" ";
 		}
 		std::cout<<"\n";
 	}
-	/////////////////////////////////////////////////sub S1,S2 and store in S////////////////////////////////////////////////
+	//////////////////////////////sub S1,S2 and store in S////////////////////////////
 	std::cout<<"Subtracting S1-S2 and storing in S"<<std::endl;
 	S.Sub(S1,S2);
 
@@ -122,24 +122,24 @@ int main()
 		}
 		
 		if(i==1){
-			std::cout<<"\t-\t";
+			std::cout<<"\t-\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<S2.Get(i,j)<<" ";
 		}
 		if(i==1){
-			std::cout<<"\t=\t";
+			std::cout<<"\t=\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<S.Get(i,j)<<" ";
 		}
 		std::cout<<"\n";
 	}
-	/////////////////////////////////////////////////sub s1,m2 and store in sol////////////////////////////////////////////////
+	/////////////////////sub s1,m2 and store in sol/////////////////////////////////////
 	std::cout<<"Subtracting S1-m2 and storing in m"<<std::endl;
 	S.Sub(sol,S1,m2);
 
@@ -151,24 +151,24 @@ int main()
 		}
 		
 		if(i==1){
-			std::cout<<"\t-\t";
+			std::cout<<"\t-\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<m2(i,j)<<" ";
 		}
 		if(i==1){
-			std::cout<<"\t=\t";
+			std::cout<<"\t=\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<sol(i,j)<<" ";
 		}
 		std::cout<<"\n";
 	}
-	/////////////////////////////////////////////////sub m2,s1 and store in sol////////////////////////////////////////////////
+	///////////////////////////////sub m2,s1 and store in sol//////////////////////////////
 	std::cout<<"Subtracting m2-S1 and storing in m"<<std::endl;
 	S.Sub(sol,m2,S1);
 
@@ -180,17 +180,17 @@ int main()
 		}
 		
 		if(i==1){
-			std::cout<<"\t-\t";
+			std::cout<<"\t-\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<S1.Get(i,j)<<" ";
 		}
 		if(i==1){
-			std::cout<<"\t=\t";
+			std::cout<<"\t=\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<sol(i,j)<<" ";
@@ -199,7 +199,7 @@ int main()
 	}
 
 
-	/////////////////////////////////////////////////mul S1,S2 and store in S////////////////////////////////////////////////
+	/////////////////////////////////mul S1,S2 and store in S////////////////////////////////
 	std::cout<<"Multiplying S1*S2 and storing in S"<<std::endl;
 	S.Mult(S1,S2);
 
@@ -211,25 +211,25 @@ int main()
 		}
 		
 		if(i==1){
-			std::cout<<"\t*\t";
+			std::cout<<"\t*\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<S2.Get(i,j)<<" ";
 		}
 		if(i==1){
-			std::cout<<"\t=\t";
+			std::cout<<"\t=\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<S.Get(i,j)<<" ";
 		}
 		std::cout<<"\n";
 	}
-	/////////////////////////////////////////////////mul s1,m2 and store in sol////////////////////////////////////////////////
-	std::cout<<"Multiplying S1-m2 and storing in m"<<std::endl;
+	/////////////////////////////mul s1,m2 and store in sol/////////////////////////////////
+	std::cout<<"Multiplying S1*m2 and storing in m"<<std::endl;
 	S.Mult(sol,S1,m2);
 
 	for (int i = 0; i < 3; ++i)
@@ -240,25 +240,25 @@ int main()
 		}
 		
 		if(i==1){
-			std::cout<<"\t*\t";
+			std::cout<<"\t*\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<m2(i,j)<<" ";
 		}
 		if(i==1){
-			std::cout<<"\t=\t";
+			std::cout<<"\t=\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<sol(i,j)<<" ";
 		}
 		std::cout<<"\n";
 	}
-	/////////////////////////////////////////////////mul m2,s1 and store in sol////////////////////////////////////////////////
-	std::cout<<"Multiplying m2-S1 and storing in m"<<std::endl;
+	//////////////////////////////mul m2,s1 and store in sol/////////////////////////////////
+	std::cout<<"Multiplying m2*S1 and storing in m"<<std::endl;
 	S.Mult(sol,m2,S1);
 
 	for (int i = 0; i < 3; ++i)
@@ -269,17 +269,17 @@ int main()
 		}
 		
 		if(i==1){
-			std::cout<<"\t*\t";
+			std::cout<<"\t*\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<S1.Get(i,j)<<" ";
 		}
 		if(i==1){
-			std::cout<<"\t=\t";
+			std::cout<<"\t=\t ";
 		}
-		else std::cout<<"\t \t";
+		else std::cout<<"\t \t ";
 		for (int j = 0; j < 3; ++j)
 		{
 			std::cout<<sol(i,j)<<" ";

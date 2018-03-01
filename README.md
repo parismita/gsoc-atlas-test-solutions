@@ -1,9 +1,7 @@
 # gsoc-atlas-test-solutions
 Faster Matrix Algebra For ATLAS
 
-This is a solution to evaluation test [link](https://github.com/StewMH/GSoC2018/blob/master/evaluation_test.pdf)
-
-To run the code: `./run.sh`
+This is a solution to evaluation test [link](https://github.com/StewMH/GSoC2018/blob/master/evaluation_test.pdf). To run the code: `./run.sh`
 
 To run the test.cpp file:
 
@@ -18,8 +16,6 @@ To run the eg.cpp file:
 
 `./a.out > op.txt`
 
-The SymMat.h is the header file for class SymMat.
-
-test.cpp is the unittest written to check the code correctness
-
-eg.cpp is the example use case for SymMat class
+The SymMat.h is the header file for class SymMat. 
+The file test.cpp is the unittest written to check the code correctness. 
+The file eg.cpp is the example use case for SymMat class

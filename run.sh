@@ -5,4 +5,6 @@ g++ -I ~/eigen/ -std=c++11 SymMat.cpp -c
 ar rvs SymMAt.a SymMat.o
 g++ -I ~/eigen/ -std=c++11 test.cpp SymMAt.a
 ./a.out
+g++ -I ~/eigen/ -std=c++11 eg.cpp SymMAt.a
+./a.out
 exit 0
